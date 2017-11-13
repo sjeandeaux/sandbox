@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ignite-inject:
+    build:
+      context: .
+    command: ["/var/sandbox.ignite/where-are-my-friends","bob","true","1"]
+    volumes:
+       - shared-data:/var/sandbox.ignite/where-are-my-friends
+  ignite-no-inject:
+    build:
+      context: .
+    command: ["/var/sandbox.ignite/where-are-my-friends","bob","false","1"]
+    volumes:
+       - shared-data:/var/sandbox.ignite/where-are-my-friends
+
+
+volumes:
+  shared-data:
